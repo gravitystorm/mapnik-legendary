@@ -7,6 +7,8 @@
 * [Ruby-Mapnik bindings](https://github.com/mapnik/Ruby-Mapnik)
 * mapnik 2.x and ruby (both required for Ruby-Mapnik)
 
+Fair warning - you need a patched version of Ruby-Mapnik. See [#36](https://github.com/mapnik/Ruby-Mapnik/pull/36)
+
 ## Installation
 
 `git clone https://github.com/gravitystorm/mapnik-legendary`

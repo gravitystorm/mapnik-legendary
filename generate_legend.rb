@@ -1,9 +1,6 @@
 #!/usr/bin/ruby
 
-ruby_mapnik_path = "/home/andy/src/ruby-mapnik/"
-require File.join(ruby_mapnik_path, 'lib', 'ruby_mapnik')
-
-require 'pry'
+require 'mapnik'
 require 'optparse'
 require 'json'
 
