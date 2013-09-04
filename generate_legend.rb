@@ -32,6 +32,10 @@ map = Mapnik::Map.from_xml(File.read(map_file), false, File.dirname(map_file))
 map.width = legend["width"]
 map.height = legend["height"]
 
+if legend.has_key?("background")
+  map.background = Mapnik::Color.new(legend["background"])
+end
+
 layer_styles = {}
 map.layers.each do |l|
   layer_styles[l.name] = l.styles.map{|s| s} # get them out of the collection
