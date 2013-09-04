@@ -5,26 +5,20 @@
   "features": [
     {
       "type": "linestring",
-      "tags": { "highway": "motorway", "cycleway": null },
-      "layers": ["roads-casing", "roads-fill"],
+      "tags": { "feature": "highway_motorway", "cycleway": null, "service": null, "tunnel": null, "bicycle": null, "bridge": null, "construction": null, "highway": "motorway", "foot": null, "horse": null },
+      "layers": ["minor-roads-casing", "minor-roads-fill"],
       "zoom": 15
     },
     {
       "type": "linestring",
-      "tags": { "highway": "trunk", "cycleway": null },
-      "layers": ["roads-casing", "roads-fill"],
+      "tags": { "feature": "highway_residential", "cycleway": null, "service": null, "tunnel": "", "bicycle": null, "bridge": null, "construction": null, "highway": "residential", "foot": null, "horse": null },
+      "layers": ["minor-roads-casing", "minor-roads-fill"],
       "zoom": 15
     },
     {
       "type": "linestring",
-      "tags": { "highway": "footway", "cycleway": null },
-      "layers": ["roads-casing", "roads-fill"],
-      "zoom": 15
-    },
-    {
-      "type": "linestring",
-      "tags": { "highway": "cycleway" },
-      "layers": ["cyclable-paths"],
+      "tags": { "feature": "highway_footway", "cycleway": null, "service": null, "tunnel": null, "bicycle": null, "bridge": null, "construction": null, "highway": "footway", "foot": null, "horse": null },
+      "layers": ["minor-roads-casing", "minor-roads-fill"],
       "zoom": 15
     }
   ]
