@@ -6,7 +6,7 @@ require 'json'
 
 options = {}
 optparse = OptionParser.new do |opts|
-  opts.banner = "Usage: generate_legend.rb [options] file"
+  opts.banner = "Usage: generate_legend.rb [options] <legend_filename> <stylesheet_filename>"
 
   opts.on_tail('-h', '--help', "Show this message") do
     puts opts
@@ -16,18 +16,19 @@ end
 optparse.parse!
 
 # Check required conditions
-if ARGV.empty?
-  puts optparse
+if (ARGV.length != 2)
+  optparse.abort("Error: Two input filenames required")
   exit(-1)
 end
 
-input_file = ARGV[0]
+legend_file = ARGV[0]
+map_file = ARGV[1]
 
-legend = JSON.parse(File.read(input_file))
+legend = JSON.parse(File.read(legend_file))
 
 geom = "LINESTRING(0 0, 1 1)"
 
-map = Mapnik::Map.from_xml(File.read(legend["map_file"]))
+map = Mapnik::Map.from_xml(File.read(map_file), false, File.dirname(map_file))
 map.width = legend["width"]
 map.height = legend["height"]
 
