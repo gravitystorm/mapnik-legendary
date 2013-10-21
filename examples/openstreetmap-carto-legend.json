@@ -1,45 +1,52 @@
 {
   "width": 100,
   "height": 60,
-  "background": "#f2efe9",
+  "background": "transparent",
   "features": [
     {
+      "name": "motorway",
       "type": "linestring",
       "tags": { "feature": "highway_motorway", "cycleway": null, "service": null, "tunnel": null, "bicycle": null, "bridge": null, "construction": null, "highway": "motorway", "foot": null, "horse": null, "tracktype": null },
       "layers": ["roads-casing", "roads-fill"],
       "zoom": 18
     },
     {
+      "name": "motorway",
       "type": "linestring",
       "tags": { "feature": "highway_motorway", "cycleway": null, "service": null, "tunnel": null, "bicycle": null, "bridge": null, "construction": null, "highway": "motorway", "foot": null, "horse": null, "tracktype": null },
       "layers": ["roads-casing", "roads-fill"],
       "zoom": 15
     },
     {
+      "name": "motorway",
       "type": "linestring",
       "tags": { "feature": "highway_motorway", "cycleway": null, "service": null, "tunnel": null, "bicycle": null, "bridge": null, "construction": null, "highway": "motorway", "foot": null, "horse": null, "tracktype": null },
       "layers": ["roads-low-zoom"],
       "zoom": 6
     },
     {
+      "name": "residential",
       "type": "linestring",
       "tags": { "feature": "highway_residential", "cycleway": null, "service": null, "tunnel": "", "bicycle": null, "bridge": null, "construction": null, "highway": "residential", "foot": null, "horse": null, "tracktype": null },
       "layers": ["roads-casing", "roads-fill"],
       "zoom": 15
     },
     {
+      "name": "residential",
       "type": "linestring",
       "tags": { "feature": "highway_footway", "cycleway": null, "service": null, "tunnel": null, "bicycle": null, "bridge": null, "construction": null, "highway": "footway", "foot": null, "horse": null, "tracktype": null },
       "layers": ["roads-casing", "roads-fill"],
       "zoom": 15
     },
     {
+      "name": "pub",
       "type": "point",
       "tags": { "amenity": "pub", "access": null, "highway": null, "historic": null, "leisure": null, "lock": null, "man_made": null, "religion": null, "shop": null, "tourism": null, "waterway": null },
       "layers": ["amenity-points"],
       "zoom": 16
     },
     {
+      "name": "park",
       "type": "polygon",
       "tags": { "feature": "leisure_park", "religion": null },
       "layers": ["landcover"],

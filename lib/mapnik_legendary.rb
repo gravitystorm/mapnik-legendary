@@ -4,6 +4,8 @@ require 'json'
 require 'mapnik_legendary/geometry'
 
 module MapnikLegendary
+  DEFAULT_ZOOM = 17
+
   def self.generate_legend(legend_file, map_file, options)
 
     legend = JSON.parse(File.read(legend_file))
@@ -25,7 +27,8 @@ module MapnikLegendary
     legend["features"].each_with_index do |feature,idx|
 
       # TODO - use a proper csv library rather than .join(",") !
-      geom = Geometry.new(feature["type"], feature["zoom"], map).to_csv
+      zoom = feature["zoom"] || DEFAULT_ZOOM
+      geom = Geometry.new(feature["type"], zoom, map).to_csv
       header = feature["tags"].keys.push("wkt").join(",")
       row = feature["tags"].values.push(geom).join(",")
       datasource = Mapnik::Datasource.create(:type => 'csv', :inline => header + "\n" + row )
@@ -42,7 +45,8 @@ module MapnikLegendary
       end
 
       #map.zoom_to_box(Mapnik::Envelope.new(0,0,1,1))
-      map.render_to_file("legend#{idx}.png", "png256:t=2")
+      id = feature["name"] || "legend-#{idx}"
+      map.render_to_file("#{id}-#{zoom}.png", "png256:t=2")
     end
   end
 end

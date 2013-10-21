@@ -3,8 +3,6 @@ require 'pry'
 module MapnikLegendary
   class Geometry
     def initialize(type, zoom, map)
-      zoom = 17 if zoom.nil?
-
       proj = Mapnik::Projection.new(map.srs)
       width_of_world_in_pixels = 2 ** zoom * 256
       width_of_world_in_metres = proj.forward(Mapnik::Coord2d.new(180,0)).x - proj.forward(Mapnik::Coord2d.new(-180,0)).x
