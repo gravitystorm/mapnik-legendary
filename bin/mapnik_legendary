@@ -1,0 +1,26 @@
+#!/usr/bin/env ruby
+
+require 'mapnik_legendary'
+require 'optparse'
+
+options = {}
+optparse = OptionParser.new do |opts|
+  opts.banner = "Usage: generate_legend.rb [options] <legend_filename> <stylesheet_filename>"
+
+  opts.on_tail('-h', '--help', "Show this message") do
+    puts opts
+    exit
+  end
+end
+optparse.parse!
+
+# Check required conditions
+if (ARGV.length != 2)
+  optparse.abort("Error: Two input filenames required")
+  exit(-1)
+end
+
+legend_file = ARGV[0]
+map_file = ARGV[1]
+
+MapnikLegendary.generate_legend(legend_file, map_file, options)
