@@ -4,9 +4,6 @@ require 'json'
 module MapnikLegendary
   def self.generate_legend(legend_file, map_file, options)
 
-    legend_file = ARGV[0]
-    map_file = ARGV[1]
-
     legend = JSON.parse(File.read(legend_file))
 
     geom = "LINESTRING(0 0, 1 1)"
