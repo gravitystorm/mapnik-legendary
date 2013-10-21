@@ -7,25 +7,38 @@
 * [Ruby-Mapnik bindings](https://github.com/mapnik/Ruby-Mapnik)
 * mapnik 2.x and ruby (both required for Ruby-Mapnik)
 
-Fair warning - you need a patched version of Ruby-Mapnik. See [#36](https://github.com/mapnik/Ruby-Mapnik/pull/36)
+Please note that you need to install the master version of Ruby-Mapnik. The latest release, 0.1.3, is insufficient.
 
 ## Installation
 
+In the future (i.e. when there's been a new release of Ruby-Mapnik) you'll be able to use rubygems. Until then:
+
 `git clone https://github.com/gravitystorm/mapnik-legendary`
 
-That's all so far.
+If you want to install the gem locally, run
+
+```
+gem build mapnik_legendary.gemspec
+gem install mapnik_legendary-0.x.x.gem
+```
 
 ## Running
 
-`./generate_legend.rb config.json`
+To run locally, without installing a gem, run:
+
+`ruby -Ilib bin/mapnik_legendary`
+
+If you've installed the gem, `mapnik_legendary` will be in your path.
 
 For full options, run
 
-`./generate_legend.rb -h`
+`mapnik_legendary -h`
 
-(spoiler alert - `-h` is the only option :-) )
+(spoiler alert - `-h` is currently the only option :-) )
 
-## Example config
+## Examples
+
+`mapnik_legendary examples/openstreetmap-carto-legend.rb osm-carto.xml`
 
 See [examples/openstreetmap-carto-legend.json](examples/openstreetmap-carto-legend.json)
 
