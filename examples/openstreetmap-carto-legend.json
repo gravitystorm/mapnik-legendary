@@ -26,6 +26,12 @@
       "tags": { "amenity": "pub", "access": null, "highway": null, "historic": null, "leisure": null, "lock": null, "man_made": null, "religion": null, "shop": null, "tourism": null, "waterway": null },
       "layers": ["amenity-points"],
       "zoom": 15
+    },
+    {
+      "type": "polygon",
+      "tags": { "feature": "leisure_park", "religion": null },
+      "layers": ["landcover"],
+      "zoom": 15
     }
   ]
 }
