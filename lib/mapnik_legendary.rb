@@ -1,12 +1,12 @@
 require 'mapnik'
 require 'json'
 
+require 'mapnik_legendary/geometry'
+
 module MapnikLegendary
   def self.generate_legend(legend_file, map_file, options)
 
     legend = JSON.parse(File.read(legend_file))
-
-    geom = "LINESTRING(0 0, 1 1)"
 
     map = Mapnik::Map.from_xml(File.read(map_file), false, File.dirname(map_file))
     map.width = legend["width"]
@@ -24,9 +24,9 @@ module MapnikLegendary
     legend["features"].each_with_index do |feature,idx|
 
       # TODO - use a proper csv library rather than .join(",") !
-      quoted_geom = %Q{"#{geom}"}
+      geom = Geometry.new(feature["type"]).to_csv
       header = feature["tags"].keys.push("wkt").join(",")
-      row = feature["tags"].values.push(quoted_geom).join(",")
+      row = feature["tags"].values.push(geom).join(",")
       datasource = Mapnik::Datasource.create(:type => 'csv', :inline => header + "\n" + row )
 
       map.layers.clear
@@ -38,9 +38,9 @@ module MapnikLegendary
           l.styles << style_name
         end
         map.layers << l
-        map.zoom_to_box(l.envelope)
       end
 
+      map.zoom_to_box(Mapnik::Envelope.new(0,0,1,1))
       map.render_to_file("legend#{idx}.png", "png256:t=2")
     end
   end

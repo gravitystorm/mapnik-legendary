@@ -20,6 +20,12 @@
       "tags": { "feature": "highway_footway", "cycleway": null, "service": null, "tunnel": null, "bicycle": null, "bridge": null, "construction": null, "highway": "footway", "foot": null, "horse": null, "tracktype": null },
       "layers": ["roads-casing", "roads-fill"],
       "zoom": 15
+    },
+    {
+      "type": "point",
+      "tags": { "amenity": "pub", "access": null, "highway": null, "historic": null, "leisure": null, "lock": null, "man_made": null, "religion": null, "shop": null, "tourism": null, "waterway": null },
+      "layers": ["amenity-points"],
+      "zoom": 15
     }
   ]
 }
