@@ -32,7 +32,7 @@
       "zoom": 15
     },
     {
-      "name": "residential",
+      "name": "footway",
       "type": "linestring",
       "tags": { "feature": "highway_footway", "highway": "footway" },
       "layers": ["roads-casing", "roads-fill"],
