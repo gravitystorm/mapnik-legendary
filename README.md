@@ -38,7 +38,7 @@ For full options, run
 
 ## Examples
 
-`mapnik_legendary examples/openstreetmap-carto-legend.rb osm-carto.xml`
+`mapnik_legendary examples/openstreetmap-carto-legend.json osm-carto.xml`
 
 See [examples/openstreetmap-carto-legend.json](examples/openstreetmap-carto-legend.json)
 
