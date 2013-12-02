@@ -1,5 +1,3 @@
-require 'pry'
-
 module MapnikLegendary
   class Geometry
     def initialize(type, zoom, map)
