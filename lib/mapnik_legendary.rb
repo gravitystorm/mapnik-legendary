@@ -2,6 +2,7 @@ require 'mapnik'
 require 'json'
 
 require 'mapnik_legendary/geometry'
+require 'mapnik_legendary/tags'
 
 module MapnikLegendary
   DEFAULT_ZOOM = 17
@@ -29,8 +30,9 @@ module MapnikLegendary
       # TODO - use a proper csv library rather than .join(",") !
       zoom = feature["zoom"] || DEFAULT_ZOOM
       geom = Geometry.new(feature["type"], zoom, map).to_csv
-      header = feature["tags"].keys.push("wkt").join(",")
-      row = feature["tags"].values.push(geom).join(",")
+      tags = Tags.merge_nulls(feature["tags"], legend["extra_tags"])
+      header = tags.keys.push("wkt").join(",")
+      row = tags.values.push(geom).join(",")
       datasource = Mapnik::Datasource.create(:type => 'csv', :inline => header + "\n" + row )
 
       map.layers.clear

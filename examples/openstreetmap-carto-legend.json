@@ -6,51 +6,52 @@
     {
       "name": "motorway",
       "type": "linestring",
-      "tags": { "feature": "highway_motorway", "cycleway": null, "service": null, "tunnel": null, "bicycle": null, "bridge": null, "construction": null, "highway": "motorway", "foot": null, "horse": null, "tracktype": null },
+      "tags": { "feature": "highway_motorway", "highway": "motorway" },
       "layers": ["roads-casing", "roads-fill"],
       "zoom": 18
     },
     {
       "name": "motorway",
       "type": "linestring",
-      "tags": { "feature": "highway_motorway", "cycleway": null, "service": null, "tunnel": null, "bicycle": null, "bridge": null, "construction": null, "highway": "motorway", "foot": null, "horse": null, "tracktype": null },
+      "tags": { "feature": "highway_motorway", "highway": "motorway" },
       "layers": ["roads-casing", "roads-fill"],
       "zoom": 15
     },
     {
       "name": "motorway",
       "type": "linestring",
-      "tags": { "feature": "highway_motorway", "cycleway": null, "service": null, "tunnel": null, "bicycle": null, "bridge": null, "construction": null, "highway": "motorway", "foot": null, "horse": null, "tracktype": null },
+      "tags": { "feature": "highway_motorway", "highway": "motorway" },
       "layers": ["roads-low-zoom"],
       "zoom": 6
     },
     {
       "name": "residential",
       "type": "linestring",
-      "tags": { "feature": "highway_residential", "cycleway": null, "service": null, "tunnel": "", "bicycle": null, "bridge": null, "construction": null, "highway": "residential", "foot": null, "horse": null, "tracktype": null },
+      "tags": { "feature": "highway_residential", "highway": "residential" },
       "layers": ["roads-casing", "roads-fill"],
       "zoom": 15
     },
     {
       "name": "residential",
       "type": "linestring",
-      "tags": { "feature": "highway_footway", "cycleway": null, "service": null, "tunnel": null, "bicycle": null, "bridge": null, "construction": null, "highway": "footway", "foot": null, "horse": null, "tracktype": null },
+      "tags": { "feature": "highway_footway", "highway": "footway" },
       "layers": ["roads-casing", "roads-fill"],
       "zoom": 15
     },
     {
       "name": "pub",
       "type": "point",
-      "tags": { "amenity": "pub", "access": null, "highway": null, "historic": null, "leisure": null, "lock": null, "man_made": null, "religion": null, "shop": null, "tourism": null, "waterway": null },
+      "tags": { "amenity": "pub" },
       "layers": ["amenity-points"],
       "zoom": 16
     },
     {
       "name": "park",
       "type": "polygon",
-      "tags": { "feature": "leisure_park", "religion": null },
+      "tags": { "feature": "leisure_park" },
       "layers": ["landcover"],
       "zoom": 15
     }
-  ]
+  ],
+  "extra_tags": ["feature", "cycleway", "service", "tunnel", "bicycle", "bridge", "construction", "highway", "foot", "horse", "tracktype", "access", "historic", "leisure", "lock", "man_made", "religion", "shop", "tourism", "waterway"]
 }
