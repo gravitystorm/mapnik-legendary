@@ -15,7 +15,7 @@ end
 optparse.parse!
 
 # Check required conditions
-if (ARGV.length != 2)
+if ARGV.length != 2
   optparse.abort('Error: Two input filenames required')
   exit(-1)
 end
