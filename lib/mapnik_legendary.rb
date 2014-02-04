@@ -34,7 +34,7 @@ module MapnikLegendary
       tags = Tags.merge_nulls(feature['tags'], legend['extra_tags'])
       header = tags.keys.push('wkt').join(',')
       row = tags.values.push(geom).join(',')
-      datasource = Mapnik::Datasource.create(:type => 'csv', :inline => header + "\n" + row)
+      datasource = Mapnik::Datasource.create(type: 'csv', inline: header + "\n" + row)
 
       map.layers.clear
 
