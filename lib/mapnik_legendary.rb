@@ -8,7 +8,6 @@ module MapnikLegendary
   DEFAULT_ZOOM = 17
 
   def self.generate_legend(legend_file, map_file, options)
-
     legend = JSON.parse(File.read(legend_file))
 
     map = Mapnik::Map.from_xml(File.read(map_file), false, File.dirname(map_file))
@@ -22,10 +21,10 @@ module MapnikLegendary
 
     layer_styles = {}
     map.layers.each do |l|
-      layer_styles[l.name] = l.styles.map{|s| s} # get them out of the collection
+      layer_styles[l.name] = l.styles.map { |s| s } # get them out of the collection
     end
 
-    legend['features'].each_with_index do |feature,idx|
+    legend['features'].each_with_index do |feature, idx|
 
       # TODO - use a proper csv library rather than .join(",") !
       zoom = feature['zoom'] || DEFAULT_ZOOM
@@ -33,7 +32,7 @@ module MapnikLegendary
       tags = Tags.merge_nulls(feature['tags'], legend['extra_tags'])
       header = tags.keys.push('wkt').join(',')
       row = tags.values.push(geom).join(',')
-      datasource = Mapnik::Datasource.create(:type => 'csv', :inline => header + "\n" + row )
+      datasource = Mapnik::Datasource.create(:type => 'csv', :inline => header + "\n" + row)
 
       map.layers.clear
 
@@ -46,7 +45,7 @@ module MapnikLegendary
         map.layers << l
       end
 
-      #map.zoom_to_box(Mapnik::Envelope.new(0,0,1,1))
+      # map.zoom_to_box(Mapnik::Envelope.new(0,0,1,1))
       id = feature['name'] || "legend-#{idx}"
       map.render_to_file("#{id}-#{zoom}.png", 'png256:t=2')
     end
