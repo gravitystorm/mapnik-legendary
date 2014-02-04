@@ -1,3 +1,5 @@
+# encoding: utf-8
+
 module MapnikLegendary
   class Geometry
     def initialize(type, zoom, map)
