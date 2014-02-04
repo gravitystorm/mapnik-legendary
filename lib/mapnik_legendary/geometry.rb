@@ -13,8 +13,8 @@ module MapnikLegendary
       min_y = 0
 
       @geom = case type
-              when "point" then "POINT(#{max_x/2} #{max_y/2})"
-              when "polygon" then "POLYGON((0 0, #{max_x} 0, #{max_x} #{max_y}, 0 #{max_y}, 0 0))"
+              when 'point' then "POINT(#{max_x/2} #{max_y/2})"
+              when 'polygon' then "POLYGON((0 0, #{max_x} 0, #{max_x} #{max_y}, 0 #{max_y}, 0 0))"
               else "LINESTRING(0 0, #{max_x} #{max_y})"
               end
 
