@@ -2,6 +2,7 @@
 
 require 'mapnik'
 require 'json'
+require 'fileutils'
 
 require 'mapnik_legendary/geometry'
 require 'mapnik_legendary/tags'
@@ -47,9 +48,16 @@ module MapnikLegendary
         map.layers << l
       end
 
+      FileUtils.mkdir_p('output')
       # map.zoom_to_box(Mapnik::Envelope.new(0,0,1,1))
       id = feature['name'] || "legend-#{idx}"
-      map.render_to_file("#{id}-#{zoom}.png", 'png256:t=2')
+      filename = File.join(Dir.pwd, 'output', "#{id}-#{zoom}.png")
+      i = 0
+      while File.exists?(filename)
+        i += 1
+        filename = File.join(Dir.pwd, 'output', "#{id}-#{zoom}-#{i}.png")
+      end
+      map.render_to_file(filename, 'png256:t=2')
     end
   end
 end
