@@ -2,6 +2,7 @@
 # encoding: utf-8
 
 require 'mapnik_legendary'
+require 'mapnik_legendary/version'
 require 'optparse'
 
 options = {}
@@ -10,6 +11,11 @@ optparse = OptionParser.new do |opts|
 
   opts.on_tail('-h', '--help', 'Show this message') do
     puts opts
+    exit
+  end
+
+  opts.on_tail("--version", "Show version") do
+    puts MapnikLegendary::VERSION
     exit
   end
 end
