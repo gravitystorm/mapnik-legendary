@@ -30,7 +30,7 @@ module MapnikLegendary
     legend['features'].each_with_index do |feature, idx|
 
       # TODO: use a proper csv library rather than .join(",") !
-      zoom = feature['zoom'] || DEFAULT_ZOOM
+      zoom = options.zoom || feature['zoom'] || DEFAULT_ZOOM
       geom = Geometry.new(feature['type'], zoom, map).to_csv
       tags = Tags.merge_nulls(feature['tags'], legend['extra_tags'])
       header = tags.keys.push('wkt').join(',')

@@ -4,10 +4,15 @@
 require 'mapnik_legendary'
 require 'mapnik_legendary/version'
 require 'optparse'
+require 'ostruct'
 
-options = {}
+options = OpenStruct.new
 optparse = OptionParser.new do |opts|
   opts.banner = 'Usage: generate_legend.rb [options] <legend_filename> <stylesheet_filename>'
+
+  opts.on('-z', '--zoom Z', Float, 'Override the zoom level stated in the legend file') do |z|
+    options.zoom = z
+  end
 
   opts.on_tail('-h', '--help', 'Show this message') do
     puts opts
