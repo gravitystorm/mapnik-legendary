@@ -42,6 +42,10 @@ module MapnikLegendary
 
       map.layers.clear
 
+      if feature['layers'].nil?
+        log.warn "Can't find any layers defined for #{feature['name']}"
+        next
+      end
       feature['layers'].each do |layer_name|
         l = Mapnik::Layer.new(layer_name, map.srs)
         l.datasource = datasource
