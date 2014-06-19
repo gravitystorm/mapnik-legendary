@@ -1,0 +1,66 @@
+width: 100
+height: 60
+background: "#f2efe9"
+features:
+  -
+    name: "track-no-tracktype"
+    type: "linestring"
+    tags:
+      feature: "highway_track"
+      tracktype: null
+    layers:
+      - "roads-fill"
+    zoom: 15
+  -
+    name: "track-grade1"
+    type: "linestring"
+    tags:
+      feature: "highway_track"
+      tracktype: "grade1"
+    layers:
+      - "roads-fill"
+    zoom: 15
+  -
+    name: "track-grade2"
+    type: "linestring"
+    tags:
+      feature: "highway_track"
+      tracktype: "grade2"
+    layers:
+      - "roads-fill"
+    zoom: 15
+  -
+    name: "track-grade3"
+    type: "linestring"
+    tags:
+      feature: "highway_track"
+      tracktype: "grade3"
+    layers:
+      - "roads-fill"
+    zoom: 15
+  -
+    name: "track-grade4"
+    type: "linestring"
+    tags:
+      feature: "highway_track"
+      tracktype: "grade4"
+    layers:
+      - "roads-fill"
+    zoom: 15
+  -
+    name: "track-grade5"
+    type: "linestring"
+    tags:
+      feature: "highway_track"
+      tracktype: "grade5"
+    layers:
+      - "roads-fill"
+    zoom: 15
+extra_tags:
+  - "access"
+  - "bicycle"
+  - "construction"
+  - "feature"
+  - "foot"
+  - "horse"
+  - "service"

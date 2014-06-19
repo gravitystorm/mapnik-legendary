@@ -13,6 +13,6 @@ Gem::Specification.new do |s|
   s.license = "MIT"
 
   s.add_runtime_dependency 'mapnik', ['>= 0.1.4'] # which hasn't been released yet...
-  s.add_runtime_dependency 'json'
+  s.add_runtime_dependency 'yaml'
   s.add_development_dependency 'rspec'
 end

@@ -38,11 +38,10 @@ For full options, run
 
 ## Examples
 
-`mapnik_legendary examples/openstreetmap-carto-legend.json osm-carto.xml`
+`mapnik_legendary examples/openstreetmap-carto-legend.yml osm-carto.xml`
 
-See [examples/openstreetmap-carto-legend.json](examples/openstreetmap-carto-legend.json)
+See [examples/openstreetmap-carto-legend.yml](examples/openstreetmap-carto-legend.yml)
 
 ## Future
 
-* Change config file from .json to .yml (for comments)
 * More preset geometries (points, polygons, dual carriageways etc)

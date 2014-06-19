@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 require 'mapnik'
-require 'json'
+require 'yaml'
 require 'fileutils'
 
 require 'mapnik_legendary/geometry'
@@ -11,7 +11,7 @@ module MapnikLegendary
   DEFAULT_ZOOM = 17
 
   def self.generate_legend(legend_file, map_file, options)
-    legend = JSON.parse(File.read(legend_file))
+    legend = YAML.load(File.read(legend_file))
 
     map = Mapnik::Map.from_xml(File.read(map_file), false, File.dirname(map_file))
     map.width = legend['width']
