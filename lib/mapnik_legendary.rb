@@ -3,6 +3,7 @@
 require 'mapnik'
 require 'yaml'
 require 'fileutils'
+require 'logger'
 
 require 'mapnik_legendary/geometry'
 require 'mapnik_legendary/tags'
@@ -11,6 +12,8 @@ module MapnikLegendary
   DEFAULT_ZOOM = 17
 
   def self.generate_legend(legend_file, map_file, options)
+    log = Logger.new(STDERR)
+
     legend = YAML.load(File.read(legend_file))
 
     map = Mapnik::Map.from_xml(File.read(map_file), false, File.dirname(map_file))
@@ -42,6 +45,10 @@ module MapnikLegendary
       feature['layers'].each do |layer_name|
         l = Mapnik::Layer.new(layer_name, map.srs)
         l.datasource = datasource
+        unless layer_styles[layer_name]
+          log.warn "Can't find #{layer_name} in the xml file"
+          next
+        end
         layer_styles[layer_name].each do |style_name|
           l.styles << style_name
         end
