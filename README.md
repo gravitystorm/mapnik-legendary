@@ -34,8 +34,6 @@ For full options, run
 
 `mapnik_legendary -h`
 
-(spoiler alert - `-h` is currently the only option :-) )
-
 ## Examples
 
 `mapnik_legendary examples/openstreetmap-carto-legend.yml osm-carto.xml`
