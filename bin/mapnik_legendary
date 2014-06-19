@@ -7,11 +7,17 @@ require 'optparse'
 require 'ostruct'
 
 options = OpenStruct.new
+options.overwrite = false
+
 optparse = OptionParser.new do |opts|
   opts.banner = 'Usage: generate_legend.rb [options] <legend_filename> <stylesheet_filename>'
 
   opts.on('-z', '--zoom Z', Float, 'Override the zoom level stated in the legend file') do |z|
     options.zoom = z
+  end
+
+  opts.on('--overwrite', 'Overwrite existing output files') do |o|
+    options.overwrite = o
   end
 
   opts.on_tail('-h', '--help', 'Show this message') do
