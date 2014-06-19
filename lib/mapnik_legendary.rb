@@ -16,6 +16,10 @@ module MapnikLegendary
 
     legend = YAML.load(File.read(legend_file))
 
+    if legend.key?('fonts_dir')
+      Mapnik::FontEngine.register_fonts(legend['fonts_dir'])
+    end
+
     map = Mapnik::Map.from_xml(File.read(map_file), false, File.dirname(map_file))
     map.width = legend['width']
     map.height = legend['height']
