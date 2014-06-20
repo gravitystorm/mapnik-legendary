@@ -6,6 +6,7 @@ require 'fileutils'
 require 'logger'
 
 require 'mapnik_legendary/feature'
+require 'mapnik_legendary/docwriter'
 
 module MapnikLegendary
   DEFAULT_ZOOM = 17
@@ -32,6 +33,8 @@ module MapnikLegendary
     map.layers.each do |l|
       layer_styles[l.name] = l.styles.map { |s| s } # get them out of the collection
     end
+
+    docs = Docwriter.new
 
     legend['features'].each_with_index do |feature, idx|
 
@@ -71,6 +74,11 @@ module MapnikLegendary
         filename = File.join(Dir.pwd, 'output', "#{id}-#{zoom}-#{i}.png")
       end
       map.render_to_file(filename, 'png256:t=2')
+      docs.add File.basename(filename), feature.description
     end
+
+    f = File.open(File.join(Dir.pwd, 'output', 'docs.html'), 'w')
+    f.write(docs.to_html)
+    f.close
   end
 end
