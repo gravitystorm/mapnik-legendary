@@ -1,3 +1,4 @@
 symbols
 *.png
 Gemfile.lock
+output/
