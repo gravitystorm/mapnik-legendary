@@ -12,7 +12,11 @@ module MapnikLegendary
     def initialize(h, zoom, map, extra_tags)
       @tags = Tags.merge_nulls(h['tags'], extra_tags)
       @geom = Geometry.new(h['type'], zoom, map)
-      @layers = h['layers']
+      if h['layer']
+        @layers = [ h['layer'] ]
+      else
+        @layers = h['layers']
+      end
     end
   end
 end
