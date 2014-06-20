@@ -39,7 +39,3 @@ For full options, run
 `mapnik_legendary examples/openstreetmap-carto-legend.yml osm-carto.xml`
 
 See [examples/openstreetmap-carto-legend.yml](examples/openstreetmap-carto-legend.yml)
-
-## Future
-
-* More preset geometries (points, polygons, dual carriageways etc)
