@@ -39,10 +39,7 @@ module MapnikLegendary
       zoom = options.zoom || feature['zoom'] || DEFAULT_ZOOM
       feature = Feature.new(feature, zoom, map, legend['extra_tags'])
       map.zoom_to_box(feature.envelope)
-      datasource = Mapnik::Datasource.create(type: 'csv', inline: feature.to_csv)
-
       map.layers.clear
-
 
       feature.parts.each do |part|
         if part.layers.nil?
@@ -51,7 +48,7 @@ module MapnikLegendary
         end
         part.layers.each do |layer_name|
           l = Mapnik::Layer.new(layer_name, map.srs)
-          datasource = Mapnik::Datasource.create(type: 'csv', inline: feature.to_csv)
+          datasource = Mapnik::Datasource.create(type: 'csv', inline: part.to_csv)
           l.datasource = datasource
           unless layer_styles[layer_name]
             log.warn "Can't find #{layer_name} in the xml file"

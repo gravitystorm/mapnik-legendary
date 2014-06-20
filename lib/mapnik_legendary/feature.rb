@@ -20,15 +20,6 @@ module MapnikLegendary
       end
     end
 
-    def to_csv
-      csv = ''
-      csv << @parts.first.tags.keys.push('wkt').join(',') + "\n"
-      @parts.each do |part|
-        csv << part.tags.values.push(part.geom.to_csv).join(',') + "\n"
-      end
-      csv
-    end
-
     def envelope
       @parts.first.geom.envelope
     end

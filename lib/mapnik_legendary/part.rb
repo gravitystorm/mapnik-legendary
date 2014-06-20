@@ -18,5 +18,11 @@ module MapnikLegendary
         @layers = h['layers']
       end
     end
+
+    def to_csv
+      csv = ''
+      csv << @tags.keys.push('wkt').join(',') + "\n"
+      csv << @tags.values.push(@geom.to_csv).join(',') + "\n"
+    end
   end
 end
