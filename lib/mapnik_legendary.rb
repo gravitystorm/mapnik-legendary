@@ -81,6 +81,7 @@ module MapnikLegendary
     f.write(docs.to_html)
     f.close
 
-    docs.to_pdf(File.join(Dir.pwd, 'output', 'legend.pdf'))
+    title = legend.key?('title') ? legend['title'] : 'Legend'
+    docs.to_pdf(File.join(Dir.pwd, 'output', 'legend.pdf'), title)
   end
 end

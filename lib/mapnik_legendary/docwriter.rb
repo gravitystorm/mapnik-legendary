@@ -22,7 +22,7 @@ module MapnikLegendary
       doc
     end
 
-    def to_pdf(filename)
+    def to_pdf(filename, title)
       entries = @entries
       Prawn::Document.generate(filename, page_size: 'A4') do
         font_families.update(
@@ -32,7 +32,8 @@ module MapnikLegendary
         )
         font 'Ubuntu'
         font_size 12
-        text 'Legend', style: :bold, size: 24, align: :center
+        text title, style: :bold, size: 24, align: :center
+        move_down(40)
         data = Array.new
         entries.each do |entry|
           data << { image: File.join(File.dirname(filename), entry[0]),
