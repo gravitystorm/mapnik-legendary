@@ -80,5 +80,7 @@ module MapnikLegendary
     f = File.open(File.join(Dir.pwd, 'output', 'docs.html'), 'w')
     f.write(docs.to_html)
     f.close
+
+    docs.to_pdf(File.join(Dir.pwd, 'output', 'legend.pdf'))
   end
 end
