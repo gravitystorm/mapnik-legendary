@@ -35,6 +35,7 @@ module MapnikLegendary
     end
 
     docs = Docwriter.new
+    docs.image_width = legend['width']
 
     legend['features'].each_with_index do |feature, idx|
       # TODO: use a proper csv library rather than .join(",") !

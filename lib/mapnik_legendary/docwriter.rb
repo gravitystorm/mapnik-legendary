@@ -4,8 +4,11 @@ require 'prawn'
 
 module MapnikLegendary
   class Docwriter
+    attr_accessor :image_width
+
     def initialize
       @entries = []
+      @image_width = 100
     end
 
     def add(image, description)
@@ -23,6 +26,7 @@ module MapnikLegendary
 
     def to_pdf(filename, title)
       entries = @entries
+      image_width = @image_width
       Prawn::Document.generate(filename, page_size: 'A4') do
         font_families.update(
           'Ubuntu' => { bold: '/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf',
@@ -34,14 +38,22 @@ module MapnikLegendary
         text title, style: :bold, size: 24, align: :center
         move_down(40)
         data = Array.new
+        image_scale = 0.5
         entries.each do |entry|
           data << { image: File.join(File.dirname(filename), entry[0]),
-                    scale: 0.5,
+                    scale: image_scale,
                     position: :center,
                     vposition: :center }
           data << entry[1]
         end
-        table(data.each_slice(6).to_a, cell_style: { border_width: 0.1 })
+
+        columns = image_width >= 200 ? 2 : 3
+
+        table(data.each_slice(columns * 2).to_a, cell_style: { border_width: 0.1 }) do
+          (0..columns - 1).each do |n|
+            column(n * 2).width = image_width * image_scale
+          end
+        end
       end
     end
   end
