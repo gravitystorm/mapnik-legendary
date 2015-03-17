@@ -4,7 +4,6 @@ require 'prawn'
 
 module MapnikLegendary
   class Docwriter
-
     def initialize
       @entries = []
     end
@@ -28,7 +27,7 @@ module MapnikLegendary
         font_families.update(
           'Ubuntu' => { bold: '/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf',
                         italic: '/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-RI.ttf',
-                        normal: '/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-R.ttf'}
+                        normal: '/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-R.ttf' }
         )
         font 'Ubuntu'
         font_size 12

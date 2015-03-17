@@ -25,7 +25,7 @@ optparse = OptionParser.new do |opts|
     exit
   end
 
-  opts.on_tail("--version", "Show version") do
+  opts.on_tail('--version', 'Show version') do
     puts MapnikLegendary::VERSION
     exit
   end

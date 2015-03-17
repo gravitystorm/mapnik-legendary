@@ -37,7 +37,6 @@ module MapnikLegendary
     docs = Docwriter.new
 
     legend['features'].each_with_index do |feature, idx|
-
       # TODO: use a proper csv library rather than .join(",") !
       zoom = options.zoom || feature['zoom'] || DEFAULT_ZOOM
       feature = Feature.new(feature, zoom, map, legend['extra_tags'])
@@ -69,7 +68,7 @@ module MapnikLegendary
       id = feature.name || "legend-#{idx}"
       filename = File.join(Dir.pwd, 'output', "#{id}-#{zoom}.png")
       i = 0
-      while File.exists?(filename) && !options.overwrite
+      while File.exist?(filename) && !options.overwrite
         i += 1
         filename = File.join(Dir.pwd, 'output', "#{id}-#{zoom}-#{i}.png")
       end

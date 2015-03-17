@@ -24,7 +24,7 @@ module MapnikLegendary
     end
 
     def to_csv
-      %Q{"#{@geom}"}
+      %("#{@geom}")
     end
 
     def envelope
