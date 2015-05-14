@@ -29,9 +29,11 @@ module MapnikLegendary
       map.background = Mapnik::Color.new(legend['background'])
     end
 
-    layer_styles = {}
+    layer_styles = []
     map.layers.each do |l|
-      layer_styles[l.name] = l.styles.map { |s| s } # get them out of the collection
+      layer_styles.push(name: l.name,
+                        style: l.styles.map { |s| s } # get them out of the collection
+                        )
     end
 
     docs = Docwriter.new
@@ -50,17 +52,21 @@ module MapnikLegendary
           next
         end
         part.layers.each do |layer_name|
-          l = Mapnik::Layer.new(layer_name, map.srs)
-          datasource = Mapnik::Datasource.create(type: 'csv', inline: part.to_csv)
-          l.datasource = datasource
-          unless layer_styles[layer_name]
+          ls = layer_styles.select { |l| l[:name] == layer_name }
+          if ls.empty?
             log.warn "Can't find #{layer_name} in the xml file"
             next
+          else
+            ls.each do |layer_style|
+              l = Mapnik::Layer.new(layer_name, map.srs)
+              datasource = Mapnik::Datasource.create(type: 'csv', inline: part.to_csv)
+              l.datasource = datasource
+              layer_style[:style].each do |style_name|
+                l.styles << style_name
+              end
+              map.layers << l
+            end
           end
-          layer_styles[layer_name].each do |style_name|
-            l.styles << style_name
-          end
-          map.layers << l
         end
       end
 
