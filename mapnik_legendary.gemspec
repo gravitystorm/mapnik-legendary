@@ -12,8 +12,7 @@ Gem::Specification.new do |s|
   s.files = Dir['{lib}/**/*.rb', 'bin/*', '*.md']
   s.license = 'MIT'
 
-  s.add_runtime_dependency 'mapnik', ['>= 0.1.4'] # which hasn't been released yet...
-  s.add_runtime_dependency 'yaml'
+  s.add_runtime_dependency 'mapnik', ['>= 0.2.0']
   s.add_runtime_dependency 'prawn'
   s.add_runtime_dependency 'prawn-table'
   s.add_development_dependency 'rspec'
