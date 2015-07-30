@@ -4,14 +4,12 @@
 
 ## Requirements
 
-* [Ruby-Mapnik bindings](https://github.com/mapnik/Ruby-Mapnik)
+* [Ruby-Mapnik bindings](https://github.com/mapnik/Ruby-Mapnik) >= 0.2.0
 * mapnik 2.x and ruby (both required for Ruby-Mapnik)
-
-Please note that you need to install the master version of Ruby-Mapnik. The latest release, 0.1.3, is insufficient.
 
 ## Installation
 
-In the future (i.e. when there's been a new release of Ruby-Mapnik) you'll be able to use rubygems. Until then:
+In the future (i.e. when I make a packaged release) you'll be able to use rubygems. Until then:
 
 `git clone https://github.com/gravitystorm/mapnik-legendary`
 
