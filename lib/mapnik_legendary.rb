@@ -33,7 +33,7 @@ module MapnikLegendary
     map.layers.each do |l|
       layer_styles.push(name: l.name,
                         style: l.styles.map { |s| s } # get them out of the collection
-                        )
+                       )
     end
 
     docs = Docwriter.new
