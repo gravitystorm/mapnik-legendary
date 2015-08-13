@@ -79,7 +79,19 @@ module MapnikLegendary
         i += 1
         filename = File.join(Dir.pwd, 'output', "#{id}-#{zoom}-#{i}.png")
       end
-      map.render_to_file(filename, 'png256:t=2')
+      begin
+        map.render_to_file(filename, 'png256:t=2')
+      rescue RuntimeError => e
+        r = /^CSV Plugin: no attribute '(?<key>[^']*)'/
+        match_data = r.match(e.message)
+        if match_data
+          log.error "'#{match_data[:key]}' is a key needed for the '#{feature.name}' feature."
+          log.error "Try adding '#{match_data[:key]}' to the extra_tags list."
+          next
+        else
+          raise e
+        end
+      end
       docs.add File.basename(filename), feature.description
     end
 
