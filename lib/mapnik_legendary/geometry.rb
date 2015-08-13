@@ -19,10 +19,10 @@ module MapnikLegendary
               when 'point75' then "POINT(#{@max_x * 0.5} #{@max_y * 0.75})"
               when 'polygon' then "POLYGON((0 0, #{@max_x} 0, #{@max_x} #{@max_y}, 0 #{@max_y}, 0 0))"
               when 'linestring-with-gap' then "MULTILINESTRING((0 0, #{@max_x * 0.45} #{@max_y * 0.45}),(#{@max_x * 0.55} #{@max_y * 0.55},#{@max_x} #{@max_y}))"
-              when 'polygon-with-hole' then "POLYGON((#{0.7 * @max_x} #{0.2 * @max_y}, #{0.9 * @max_x} #{0.9 * @max_y}" +
-                                            ", #{0.3 * @max_x} #{0.8 * @max_y}, #{0.2 * @max_x} #{0.4 * @max_y}" +
-                                            ", #{0.7 * @max_y} #{0.2 * @max_y}),( #{0.4 * @max_x} #{0.6 * @max_y}" +
-                                            ", #{0.7 * @max_x} #{0.7 * @max_y}, #{0.6 * @max_x} #{0.4 * @max_y}" +
+              when 'polygon-with-hole' then "POLYGON((#{0.7 * @max_x} #{0.2 * @max_y}, #{0.9 * @max_x} #{0.9 * @max_y}" \
+                                            ", #{0.3 * @max_x} #{0.8 * @max_y}, #{0.2 * @max_x} #{0.4 * @max_y}" \
+                                            ", #{0.7 * @max_y} #{0.2 * @max_y}),( #{0.4 * @max_x} #{0.6 * @max_y}" \
+                                            ", #{0.7 * @max_x} #{0.7 * @max_y}, #{0.6 * @max_x} #{0.4 * @max_y}" \
                                             ", #{0.4 * @max_x} #{0.6 * @max_y}))"
               else "LINESTRING(0 0, #{@max_x} #{@max_y})"
               end
