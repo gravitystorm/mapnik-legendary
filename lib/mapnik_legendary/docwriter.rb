@@ -37,7 +37,7 @@ module MapnikLegendary
         font_size 12
         text title, style: :bold, size: 24, align: :center
         move_down(40)
-        data = Array.new
+        data = []
         image_scale = 0.5
         entries.each do |entry|
           data << { image: File.join(File.dirname(filename), entry[0]),
