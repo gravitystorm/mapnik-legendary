@@ -1,6 +1,7 @@
 # encoding: utf-8
 
 module MapnikLegendary
+  # A wkt-based geometry that can be used for the legend feature.
   class Geometry
     def initialize(type, zoom, map)
       proj = Mapnik::Projection.new(map.srs)
