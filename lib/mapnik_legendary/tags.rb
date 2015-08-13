@@ -8,7 +8,7 @@ module MapnikLegendary
     def self.merge_nulls(tags, extras)
       tags = {} if tags.nil?
       extras = [] if extras.nil?
-      Hash[extras.map { |t| [t, 'null'] }].merge(tags)
+      Hash[extras.map { |t| [t, nil] }].merge(tags)
     end
   end
 end
