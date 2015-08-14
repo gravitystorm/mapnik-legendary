@@ -9,24 +9,15 @@
 
 ## Installation
 
-In the future (i.e. when I make a packaged release) you'll be able to use rubygems. Until then:
+You can install the gem from rubygems:
 
-`git clone https://github.com/gravitystorm/mapnik-legendary`
+`gem install mapnik_legendary`
 
-If you want to install the gem locally, run
+Alternatively, you can add the gem to your project's Gemfile
 
-```
-gem build mapnik_legendary.gemspec
-gem install mapnik_legendary-0.x.x.gem
-```
+`gem mapnik_legendary`
 
 ## Running
-
-To run locally, without installing a gem, run:
-
-`ruby -Ilib bin/mapnik_legendary`
-
-If you've installed the gem, `mapnik_legendary` will be in your path.
 
 For full options, run
 
