@@ -73,6 +73,7 @@ module MapnikLegendary
       FileUtils.mkdir_p('output')
       # map.zoom_to_box(Mapnik::Envelope.new(0,0,1,1))
       id = feature.name || "legend-#{idx}"
+      id.gsub!(/[^\w\s_-]+/, '')
       filename = File.join(Dir.pwd, 'output', "#{id}-#{zoom}.png")
       i = 0
       while File.exist?(filename) && !options.overwrite
